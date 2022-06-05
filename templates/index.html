@@ -1,0 +1,151 @@
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block title %}
+    Regan
+{% endblock title %}
+{% block styles %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script defer src="https://kit.fontawesome.com/ff6ca41c9d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+{% endblock styles %}
+{% block content %}
+    <section id="top">
+        <div class="container-fluid">
+            <!-- Nav Bar -->
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="#">
+                    <img src="{{ url_for('static', filename='img/my_potrait.png') }}" alt="Regan">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#top">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#me">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#projects">Projects</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                </div>
+            </nav>
+            <div class="row describe">
+                <div class="col-lg-8">
+                    <h1>Hello, I'm Regan</h1>
+                    <p>
+                        I am a Python Developer from Nairobi, Kenya.
+                        I specialize in Web Development and Data Science.
+                        If you are seeking a web presence or looking to make sense of your business data,
+                        you can get in touch with me here.
+                    </p>
+                    <a href="#contact">
+                        <button type="button" class="btn btn-lg mt-3">
+                            I'm looking to Hire&emsp;<i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="me">
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=True) %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible show role='alert'">
+                {{ message }}
+            </div>
+                {% endfor %}
+            {% endwith %}
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{{ url_for('static', filename='img/ux.png') }}" alt="UX">
+                    <h3>FrontEnd</h3>
+                    <p>Clean and modern frontend designs for converting viewers to clients.</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="{{ url_for('static', filename='img/backend.png') }}" alt="Backend">
+                    <h3>BackEnd</h3>
+                    <p>Server side scripts optimized for performance to reduce latency and improve user experience. </p>
+                </div>
+                <div class="col-md-4">
+                    <img src="{{ url_for('static', filename='img/data.png') }}" alt="Data Analysis">
+                    <h3>Data Analytics</h3>
+                    <p>Make sense and discover trends in your data to enable informed decision making.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="projects">
+        <div id="carouselExampleControls" class="carousel slide " data-ride="carousel">
+            <div class="carousel-inner container">
+                <div class="carousel-item active">
+                    <h3>Compassion Church of Christ</h3>
+                    <h6>Web Design and Development</h6>
+                    <p>
+                        The website was the launching point for an online church platform.
+                        So far they.ve put together an active Facebook page and Youtube Channel for spreading the word of God.
+                    </p>
+                    <a href="https://www.compassionchurchofchrist.com/" target="_blank">
+                        <button type="button" class="btn btn-lg btn-danger">View Website</button>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <h3>Dr. Evans Masanta</h3>
+                    <h6>Web Design and Development</h6>
+                    <p>
+                        I worked with Dr. Evans to build a polished and informative website for his Dermatology Clinic that would showcase all
+                        skins conditions he specializes in.
+                    </p>
+                    <a href="https://www.drevansmasanta.com/" target="_blank">
+                        <button type="button" class="btn btn-lg btn-danger">View Website</button>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <h3>Alfred Arot</h3>
+                    <h6>Data Visualization Dashboard</h6>
+                    <p>
+                        Alfred wanted a data dashboard to be able to visualize his M&E data quickly and easily.
+                        We created an app that featured different user interaction widgets and a database to store collected data.
+                    </p>
+                    <a href="https://www.compassionchurchofchrist.com/" target="_blank">
+                        <button type="button" class="btn btn-lg btn-danger">View Website</button>
+                    </a>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container">
+            {{ wtf.quick_form(form, novalidate=True) }}
+            <div class="footer">
+                <div class="socials">
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-instagram"></i>
+                    <i class="fa fa-linkedin"></i>
+                    <p>© Copyright 2022 Regan Muthomi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
