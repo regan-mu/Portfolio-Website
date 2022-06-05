@@ -131,6 +131,19 @@ body {
     padding: 1rem;
     margin: 0 auto;
 }
+#contact form .has-error input {
+    border: 1px solid red;
+}
+#contact form .has-error textarea {
+    border: 1px solid red;
+}
+#contact form .has-error label {
+    color: red;
+}
+#contact form .help-block {
+    font-size: 0.9rem;
+    color: red;
+}
 #contact .socials {
     text-align: center;
     margin-top: 3rem;
