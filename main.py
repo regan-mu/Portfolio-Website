@@ -22,7 +22,7 @@ def home():
     form = ContactForm()
     if form.validate_on_submit():
         flash('Message Received', 'info')
-        return redirect('/#contact')
+        return redirect(url_for('home'))
     return render_template('index.html', form=form)
 
 
